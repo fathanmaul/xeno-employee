@@ -167,7 +167,9 @@ class EmpSalaryController extends Controller
             ->where('year', $year)
             ->get();
 
-        return view('pages.salary.monthly.index', compact('salaries', 'month', 'year'));
+        $total_salaries = $salaries->sum('total_salary');
+
+        return view('pages.salary.monthly.index', compact('salaries', 'month', 'year', 'total_salaries'));
     }
 
 }

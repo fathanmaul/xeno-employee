@@ -1,17 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'List of Employees Salary')
+@section('title', 'List of Monthly Salary')
 
 @section('content')
   <section class="section">
     <div class="section-header">
-      <h1>Salary</h1>
-      <div class="section-header-button">
-        <a href="{{ route('salary.create') }}" class="btn btn-primary">Add New</a>
-      </div>
+      <h1>Monthly Salary</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item"><a href="{{ route('salary.index') }}">Salary</a></div>
-        <div class="breadcrumb-item">List Salary</div>
+        <div class="breadcrumb-item"><a href="{{ route('salary.index') }}">Monthly Salary</a></div>
+        <div class="breadcrumb-item">List Monthly Salary</div>
       </div>
     </div>
     <div class="section-body">
@@ -23,9 +20,6 @@
             </div>
           @endif
           <div class="card">
-            <div class="card-header">
-              <h4>All Salary</h4>
-            </div>
             <div class="card-body">
               <div class="float-left w-100">
                 <form>
@@ -47,7 +41,7 @@
                       </select>
                     </div>
                     <div class="col-12 col-md-3 mb-3">
-                      <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                      <button class="btn btn-primary">Calculate</button>
                     </div>
                   </div>
                 </form>
@@ -85,6 +79,10 @@
                           <td>{{ $item->total_salary }}</td>
                         </tr>
                       @endforeach
+                      <tr>
+                        <td colspan="7">Total</td>
+                        <td>{{$total_salaries}}</td>
+                      </tr>
                     @endisset
                   </tbody>
                 </table>
